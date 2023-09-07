@@ -1,11 +1,11 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
-  import type { PageData } from "./$types";
+  import type { PageData } from "../../../.svelte-kit/types/src/routes/$types";
 
   export let post: PageData;
 </script>
 
-<div class="post" on:click={() => goto(`/p/${post.id}`)}>
+<div class="post" on:keydown={() => goto(`/p/${post.id}`)} on:click={() => goto(`/p/${post.id}`)}>
   <h2>{post.title}</h2>
   <small
     >{post.author?.name ? `By ${post.author.name}` : "Unknown author"}</small
